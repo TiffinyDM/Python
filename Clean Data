@@ -1,0 +1,20 @@
+#Import Pakages
+import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
+
+# read the table
+HouseInf=pd.read_excel('HouseInfo.xlsx','info')
+HouseInf
+
+# check the null value
+HouseInf.isnull().sum()
+
+# Replace the null value
+HouseInf['Lot'].fillna(0,inplace=True)
+HouseInf['Type'].fillna('Single Family',inplace=True)
+HouseInf['Year'].fillna(0,inplace=True)
+HouseInf['Heating'].fillna('None',inplace=True)
+HouseInf['Cooling'].fillna('None',inplace=True)
+HouseInf['Parking'].fillna('None',inplace=True)
+HouseInf['Price/Sqft'].fillna(0,inplace=True)
